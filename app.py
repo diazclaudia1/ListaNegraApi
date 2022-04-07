@@ -11,7 +11,7 @@ from modelos import db
 
 def create_app(config_name):
     app = Flask(__name__)
-    app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///black_list.db"
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://claudia:system$$@aaaf1ndcu93o8p.ckknahbrrseo.us-east-1.rds.amazonaws.com:5432/listanegra'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['JWT_SECRET_KEY'] = 'frase-secreta'
     app.config['PROPAGATE_EXCEPTIONS'] = True
