@@ -77,4 +77,4 @@ class VistaBlackListDetail(Resource):
 
 class VistaPing(Resource):
     def get(self):
-        return 'pong', 200
+        return "Hello, world", 200
