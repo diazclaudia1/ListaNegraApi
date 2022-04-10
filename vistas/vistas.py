@@ -65,16 +65,18 @@ class VistaBlackListDetail(Resource):
     @jwt_required()
     def get(self, email):
         identity = get_jwt_identity()
-        query_string = "select * from global_list t where t.email =" + \
-                       '\'' + str(email) + '\''
-        result = db.engine.execute(query_string)
-        rta = [dict(row) for row in result]
-        if len(rta) == 0:
-            return "El email no está en la lista negra", 200
-        else:
-            return "El email sí está en la lista negra", 200
 
+        MyObj =GlobalList.query.filter(GlobalList.email==str(email)).first()
+        if (MyObj!= None):
+            print(MyObj.blocked_reason)
+            return {'status':"El email si está en la lista negra",'blocked_reason':MyObj.blocked_reason}, 200
+        else:
+            return {'status':"El email no está en la lista negra",'blocked_reason':None}, 404
+
+    
 
 class VistaPing(Resource):
     def get(self):
         return "Hello, world", 200
+
+
