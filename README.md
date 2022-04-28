@@ -6,3 +6,6 @@
 
 ### Ejecución de la API desde la raiz del proyecto
    `flask run`
+
+### Ejecutar pruebas unitarias 
+   Desde el root ejecutar `nosetests`
